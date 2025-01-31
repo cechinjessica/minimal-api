@@ -70,6 +70,16 @@ builder.Services.AddDbContext<DBContexto>(options => {
         );
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 # endregion
 
@@ -285,6 +295,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors("AllowAll");
+
 
 app.Run();
 # endregion
