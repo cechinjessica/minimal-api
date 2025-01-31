@@ -20,7 +20,7 @@ public class DBContexto : DbContext
                 Id = 1,
                 Email = "administrador@teste.com", 
                 Senha = "123456",
-                Perfil = "Adm"
+                Perfil = Dominio.Enuns.Perfil.Administrador.ToString()
             }
         );
     }
